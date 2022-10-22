@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { CostService } from "./cost.service";
 import { ICost } from "./cost.interface";
 
@@ -8,7 +8,7 @@ export class CostController {
   }
 
   @Post('create')
-  async create(cost:ICost){
+  async create(@Body() cost:ICost){
     return this.costService.create(cost)
   }
 
